@@ -18,64 +18,83 @@ body {
 }
 
 nav {
-    width: 100%;
-    height: 80px;
-    position: fixed;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    z-index: 999;
-    transition: all 500ms;
+    background-position: center;
+    background-color: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.3s ease-in-out;
+    z-index: 1;
 }
 
-.scrolled {
-    background-color: white;
+.logo_icon {
+    display: flex;
+    width: 100%;
 }
 
-.logo_class {
+.logo {
     display: flex;
     flex-direction: row;
     align-items: center;
-    flex: 1;
+    width: 95%;
 }
 
-.logo_class img {
+.logo img {
     width: 100px;
 }
 
-.logo_class img:hover {
+.logo img:hover {
     cursor: pointer;
 }
 
-.navigation {
-    height: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.navigation li {
-    padding: 5px;
-    margin-left: 10px;
-}
-
-.nav-link {
-    color: black;
-    text-decoration: none;
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.nav-link:hover {
-    color: blue;
-}
-
 .hamburger_icon {
+    cursor: pointer;
     display: none;
+    font-size: 20px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
 }
 
-.hamburger_icon2 {
+.xmark_icon {
     display: none;
+    width: 50%;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 80px;
+    padding-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #2C3E50;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nav_link:hover {
+    color: #1ABC9C;
+}
+
+.hr_side {
+    display: flex;
+    border: 2px solid #ccc;
 }
 
 .index_body1 {
@@ -97,6 +116,7 @@ nav {
     gap: 30px;
     transform: translateY(-200%);
     position: static;
+    color: #2C3E50;
 }
 
 .index_body1_stuff {
@@ -108,7 +128,6 @@ nav {
     position: relative;
     width: 100%;
     height: 700px;
-    background-color: #ccc;
     overflow: hidden;
 }
 
@@ -128,6 +147,7 @@ nav {
     opacity: 0;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
     transform: translateX(100%);
+    object-fit: contain;
 }
 
 .slides img.active {
@@ -175,8 +195,8 @@ nav {
     display: flex;
     justify-content: center;
     text-decoration: none;
-    color: black;
-    border: 2px solid black;
+    color: #2C3E50;
+    border: 2px solid #2C3E50;
     width: 15%;
     padding: 10px;
     margin: 0 auto 0 auto;
@@ -184,7 +204,7 @@ nav {
 }
 
 .button1:hover {
-    background-color: black;
+    background-color: #2C3E50;
     color: white;
 }
 
@@ -202,13 +222,19 @@ nav {
     width: 80%;
 }
 
-.index_body2 {
-    height: 700px;
-    background: linear-gradient(white, #B4C8DC);
-    margin-top: 10px;
+.show {
     opacity: 1;
-    transform: translateY(0);
-    transition: all 0.5s ease-out;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.index_body2 {
+    height: 600px;
+    background: linear-gradient(white);
+    margin-top: 10px;
+    filter: opacity(0);
+    transform: translateY(300px);
+    transition: all 1000ms ease-in-out;
 }
 
 .index_body2 img {
@@ -229,15 +255,40 @@ nav {
     font-size: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     line-height: 35px;
     text-align: justify;
+    gap: 10px;
+}
+
+.index_body2.visible {
+    transform: translateY(0);
+    filter: opacity(1);
+}
+
+.index_body2_content h1 {
+    display: flex;
+    gap: 20px;
+
 }
 
 .index_body3 {
-    height: 300px;
+    height: auto;
     background: white;
     margin: 5% 0 5% 0;
+    transition: all 1000ms ease-in-out;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.index_body3.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.index_body3.visible {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .case_samples {
@@ -247,7 +298,8 @@ nav {
     align-items: center;
     justify-content: center;
     margin: 2.5% 0 2.5% 0;
-    gap: 2.5%;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .case_sample {
@@ -263,7 +315,7 @@ nav {
     border-radius: 5px;
     font-size: 20px;
     gap: 10px;
-    transition: all 300ms;
+    transition: all 300ms ease-in-out;
 }
 
 .case_sample:hover {
@@ -366,10 +418,6 @@ nav {
     background: none;
     border-bottom: 2px solid black;
 }
-
-.index_body5 input[type=text]::placeholder,
-.index_body5 input[type=email]::placeholder,
-.index_body5 input[type=number]::placeholder {}
 
 .index_body5 textarea {
     width: 100%;
@@ -737,4 +785,56 @@ footer {
     cursor: pointer;
     background-color: white;
     color: black;
+}
+
+@media screen and (max-width: 1024px) {
+    nav {
+        flex-direction: column;
+        height: 70px;
+        background-color: transparent;
+    }
+
+    .logo img {
+        width: 60px;
+        overflow: hidden;
+    }
+
+    #menu_icon {
+        display: flex;
+        font-size: 25px;
+    }
+
+    #close_icon {
+        display: flex;
+        order: -1;
+        justify-content: flex-end;
+        cursor: pointer;
+        margin: 40px 40px 0 0;
+    }
+
+    nav ul {
+        height: 450px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        background-color: white;
+        padding-right: 0;
+        transform: translateY(-120%);
+        z-index: -1;
+        padding-bottom: 100px;
+        padding-top: 20px;
+        transition: all 400ms;
+    }
+
+    nav ul li {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav_link {
+        display: flex;
+        color: black;
+    }
 }

@@ -8,36 +8,41 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="ECT_LOGO2_NOBG.png">
     <script src="https://kit.fontawesome.com/dc0929a05e.js" crossorigin="anonymous"></script>
+    <script defer src="JavaS.js"></script>
 </head>
 
 <body>
     <nav>
-        <div class="logo_class" onclick="redirectHome()">
-            <img src="ECT_LOGO_NOBG.png" alt="EverydayCTs" title="Home">
-        </div>
-        <ul class="navigation">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="cases.html" class="nav-link">Cases</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="hamburger_icon" id="menu_icon" onclick="closeSideBar()">
+        <div class="logo_icon">
+            <div class="logo">
+                <a href="index.html"><img src="ECT_LOGO_NOBG.png" alt="" title="Home"></a>
+            </div>
+            <div class="hamburger_icon" id="menu_icon" onclick="showMenu()">
                 <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html" class="nav_link">Home</a></li>
+            <li><a href="about.html" class="nav_link">About</a></li>
+            <li><a href="cases.html" class="nav_link">Cases</a></li>
+            <li><a href="contact.html" class="nav_link">Contact</a></li>
+            <li class="xmark_icon" id="close_icon" onclick="closeMenu()">
+                <i class="fa-solid fa-xmark"></i>
             </li>
         </ul>
-        <div class="hamburger_icon2" id="menu_icon_2" onclick="showSideBar()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
     </nav>
     <div class="index_body1">
         <div class="index_body1_stuff">
             <div class="index_body1_slider">
                 <div class="slides">
-                    <img class="slide" src="bible_wallpaper.jpg" alt="Image 1">
                     <img class="slide"
-                        src="https://images.unsplash.com/photo-1607748669447-d80c72873e6b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        src="https://images.unsplash.com/photo-1564247556387-6e97f44aa0cd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt="Image 1">
+                    <img class="slide"
+                        src="https://images.unsplash.com/photo-1555817128-342e1c8b3101?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Image 2">
                     <img class="slide"
-                        src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        src="https://images.unsplash.com/photo-1515615200917-f9623be1d8b0?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="Image 3">
                 </div>
             </div>
@@ -47,38 +52,7 @@
             </div>
         </div>
     </div>
-    <hr style="border: 2px solid black; width: 100%; margin-top: 7px;">
-    <div class="intermission">
-        <i>For the word of God is alive and active. Sharper than any double-edged sword, it penetrates even to
-            dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes of the heart.</i>
-        <p>- Hebrews 4:12</p>
-        <p>In a world filled with challenges, questions, and triumphs, the Word of God stands as a beacon of hope and
-            guidance.</p>
-        <p>Through the sharing of personal experiences, struggles, and victories, we witness the tangible impact of
-            God's Word in the everyday lives of individuals.</p>
-        <p>It is in these stories that we see the Word come alive, bringing healing, wisdom, and direction.</p>
-    </div>
-    <hr style="border: 2px solid black; width: 100%;">
-    <div class="index_body2">
-        <h1 style="margin:20px;display: flex; flex-direction: row; font-size: 50px; gap: 20px;">Our Vision
-            <hr style="border: 2px solid #ccc;">
-        </h1>
-        <div class="index_body2_stuff">
-            <img src="cts_pic2.jpeg" alt="">
-            <div class="index_body2_content">
-                <p>At EverydayCTs, our vision is to create a vibrant online community where Christians from all walks of
-                    life come together to share, learn, and grow in their faith journey. Inspired by the teachings of
-                    Christ and guided by the transformative power of Scripture, we envision a platform that serves as a
-                    beacon
-                    of hope, encouragement, and support for believers around the world.</p>
-                <p>We envision a community where the Word of God is not merely studied but lived out in everyday life.
-                    We believe in the power of personal testimonies, where individuals can share their experiences of
-                    God's faithfulness, grace, and love. Through these stories, we aim to inspire and uplift one
-                    another, reminding ourselves of the incredible ways God works in our lives.</p>
-            </div>
-        </div>
-    </div>
-    <div class="index_body3">
+    <div class="index_body3 hidden">
         <h1 style="text-align: center; font-size: 50px;">Case Studies</h1>
         <div class="case_samples">
             <div class="case_sample" onclick="redirectCases()">
@@ -93,8 +67,6 @@
                 <i class="fa-solid fa-book-bible"></i>
                 <p>Case Study 3</p>
             </div>
-        </div>
-        <div class="case_samples">
             <div class="case_sample" onclick="redirectCases()">
                 <i class="fa-solid fa-book-bible"></i>
                 <p>Case Study 4</p>
@@ -109,6 +81,33 @@
             </div>
         </div>
         <a href="cases.html" class="button2">See More</a>
+    </div>
+    <hr style="border: 2px solid black; width: 100%;">
+    <div class="index_body2">
+
+        <div class="index_body2_stuff">
+            <img src="cts_pic2.jpeg" alt="">
+            <div class="index_body2_content">
+                <h1>Our Vision
+                    <hr class="hr_side">
+                </h1>
+                <p>At EverydayCTs, our vision is to create a vibrant online community where Christians from all walks of
+                    life come together to share, learn, and grow in their faith journey. Inspired by the teachings of
+                    Christ and guided by the transformative power of Scripture, we envision a platform that serves as a
+                    beacon
+                    of hope, encouragement, and support for believers around the world.</p>
+            </div>
+        </div>
+    </div>
+    <div class="intermission">
+        <i>For the word of God is alive and active. Sharper than any double-edged sword, it penetrates even to
+            dividing soul and spirit, joints and marrow; it judges the thoughts and attitudes of the heart.</i>
+        <p>- Hebrews 4:12</p>
+        <p>In a world filled with challenges, questions, and triumphs, the Word of God stands as a beacon of hope and
+            guidance.</p>
+        <p>Through the sharing of personal experiences, struggles, and victories, we witness the tangible impact of
+            God's Word in the everyday lives of individuals.</p>
+        <p>It is in these stories that we see the Word come alive, bringing healing, wisdom, and direction.</p>
     </div>
     <div class="index_body4">
         <video src=""></video>

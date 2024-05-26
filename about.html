@@ -12,21 +12,23 @@
 
 <body>
     <nav>
-        <div class="logo_class" onclick="redirectHome()">
-            <img src="ECT_LOGO_NOBG.png" alt="EverydayCTs" title="Home">
-        </div>
-        <ul class="navigation">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="about.html" class="nav-link">About</a></li>
-            <li><a href="cases.html" class="nav-link">Cases</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-            <li class="hamburger_icon" id="menu_icon" onclick="closeSideBar()">
+        <div class="logo_icon">
+            <div class="logo">
+                <a href="index.html"><img src="ECT_LOGO_NOBG.png" alt="" title="Home"></a>
+            </div>
+            <div class="hamburger_icon" id="menu_icon" onclick="showMenu()">
                 <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <ul>
+            <li><a href="index.html" class="nav_link">Home</a></li>
+            <li><a href="about.html" class="nav_link">About</a></li>
+            <li><a href="cases.html" class="nav_link">Cases</a></li>
+            <li><a href="contact.html" class="nav_link">Contact</a></li>
+            <li class="xmark_icon" id="close_icon" onclick="closeMenu()">
+                <i class="fa-solid fa-xmark"></i>
             </li>
         </ul>
-        <div class="hamburger_icon2" id="menu_icon_2" onclick="showSideBar()">
-            <i class="fa-solid fa-bars"></i>
-        </div>
     </nav>
     <div class="about_body1">
         <img src="ECT_LOGO2_NOBG.png" alt="">
