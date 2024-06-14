@@ -1,6 +1,6 @@
 const nav = document.querySelector('nav');
 const navLinks = document.querySelectorAll('.nav_link');
-const navHover = document.querySelectorAll('.nav_link:hover');
+const imgElement = document.getElementById('iconLogo');
 
 window.addEventListener("scroll", handleScroll);
 
@@ -9,18 +9,22 @@ function handleScroll() {
     const windowWidth = window.innerWidth;
     const url = window.location.href;
 
-    if (url.includes("index") && windowWidth > 1024) {
+    if (windowWidth > 1024) {
         if (scrollPosition >= 100) {
             nav.style.backgroundColor = 'white';
-            navLinks.forEach(link => link.style.color = '#2C3E50');
-            navHover.forEach(link => link.style.color = '#1ABC9C');
+            imgElement.src = 'ECT_LOGO_NOBG.png';  // Update the image source here
         } else {
             nav.style.backgroundColor = 'transparent';
+            imgElement.src = 'ECT_LOGO_WHITE-NOBG.png';  // Update the image source here
+        }
+        if (url.includes('index') && scrollPosition >= 100) {
             navLinks.forEach(link => link.style.color = '#2C3E50');
-            navHover.forEach(link => link.style.color = '#1ABC9C');
+        } else {
+            navLinks.forEach(link => link.style.color = 'white');
         }
     }
-};
+}
+
 
 window.addEventListener("scroll", handleSmallScroll);
 function handleSmallScroll() {
@@ -28,7 +32,7 @@ function handleSmallScroll() {
     const windowWidth = window.innerWidth;
     const url = window.location.href;
 
-    if (url.includes("index") && windowWidth <= 1024) {
+    if (windowWidth <= 1024) {
         if (scrollPosition >= 100) {
             nav.style.backgroundColor = 'white';
         } else {
@@ -111,46 +115,42 @@ document.addEventListener('DOMContentLoaded', function () {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            } else {
-                entry.target.classList.remove('visible');
             }
         });
     }
 
     const observer = new IntersectionObserver(onIntersection, observerOptions);
 
-    const elementsToObserve = document.querySelectorAll('.index_body2');
+    const elementsToObserve = document.querySelectorAll('.index_body3');
     elementsToObserve.forEach(element => {
         observer.observe(element);
     });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
+    // Intersection Observer for .index_body2
     const observerOptionsBody3 = {
-        root: null,
+        root: null, // use the viewport
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.1 // 10% of the element is visible
     };
 
     function onIntersectionBody3(entries, observerBody3) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                entry.target.classList.remove('hidden');
-            } else {
-                entry.target.classList.remove('visible');
-                entry.target.classList.add('hidden');
+                entry.target.classList.add('visible1');
             }
         });
     }
 
     const observerBody3 = new IntersectionObserver(onIntersectionBody3, observerOptionsBody3);
 
-    const elementsToObserveBody3 = document.querySelectorAll('.index_body3');
+    const elementsToObserveBody3 = document.querySelectorAll('.index_body2');
     elementsToObserveBody3.forEach(element => {
         observerBody3.observe(element);
     });
 });
+
 
 
 
